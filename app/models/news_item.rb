@@ -19,9 +19,5 @@ class NewsItem < ActiveRecord::Base
         news_item.save
       end
     end
-
-    activity = Activity.new
-    activity.news_items_check = true
-    activity.save
   end
 end

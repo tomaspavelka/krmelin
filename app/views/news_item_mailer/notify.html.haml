@@ -1,0 +1,47 @@
+%table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :height => "100%", :style => "border-collapse:collapse;height:100%;margin:0;padding:0;width:100%;background-color:#eee", :width => "100%"}
+  %tbody
+    %tr
+      %td{:align => "center", :style => "height:100%;margin:0;padding:10px;width:100%;border-top:0", :valign => "top"}
+        %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-collapse:collapse;border:0;max-width:600px!important", :width => "100%"}
+          %tbody
+            %tr
+              %td{:style => "background-color:#fafafa;border-top:0;border-bottom:0;padding-top:9px;padding-bottom:9px", :valign => "top"}
+            %tr
+              %td{:style => "background-color:#ffffff;border-top:0;border-bottom:0;padding-top:9px;padding-bottom:0", :valign => "top"}
+            %tr
+              %td{:style => "background-color:#ffffff;border-top:0;border-bottom:2px solid #eaeaea;padding-top:0;padding-bottom:9px", :valign => "top"}
+                %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "min-width:100%;border-collapse:collapse", :width => "100%"}
+                  %tbody
+                    %tr
+                      %td{:valign => "top"}
+                        %table{:align => "left", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "min-width:100%;border-collapse:collapse", :width => "100%"}
+                          %tbody
+                            %tr
+                              %td{:style => "padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;word-break:break-word;color:#202020;font-family:Helvetica;font-size:16px;line-height:150%;text-align:left", :valign => "top"}
+                                %h1{:style => "text-align:center;display:block;margin:0;padding:0;color:#202020;font-family:Helvetica;font-size:26px;font-style:normal;font-weight:bold;line-height:125%;letter-spacing:normal"} Aktuality Krmelín
+                                %p{:style => "margin:20px 0 40px;padding:0;color:#202020;font-family:Helvetica;font-size:16px;line-height:150%;text-align:left"}
+                                  %span{:style => "line-height:1.6"} Na základě registrace vaší e-mailové adresy vám posíláme nejnovější aktuality ze stránek obce Krmelín.
+                                   
+                                %ul
+                                  - @news_items.each do |news_item|
+                                    %li{ style: "margin-bottom: 30px;" }
+                                      %strong= news_item.imported_title
+                                      %br
+                                      = news_item.imported_date
+                                      %br
+                                      = link_to "http://www.krmelin.cz/#{news_item.imported_link}", "http://www.krmelin.cz/#{news_item.imported_link}"
+
+            %tr
+              %td{:style => "background-color:#fafafa;border-top:0;border-bottom:0;padding-top:9px;padding-bottom:9px", :valign => "top"}
+                %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "min-width:100%;border-collapse:collapse", :width => "100%"}
+                  %tbody
+                    %tr
+                      %td{:valign => "top"}
+                        %table{:align => "left", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "min-width:100%;border-collapse:collapse", :width => "100%"}
+                          %tbody
+                            %tr
+                              %td{:style => "padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;word-break:break-word;color:#656565;font-family:Helvetica;font-size:12px;line-height:150%;text-align:center", :valign => "top"}
+                                Nejedná se o oficiální službu obce Krmelín.
+                                %br/
+                                V případě problémů kontaktujte
+                                %a{:href => "mailto:info@tomaspavelka.cz", :style => "color:#656565;font-weight:normal;text-decoration:underline", :target => "_blank"} info@tomaspavelka.cz

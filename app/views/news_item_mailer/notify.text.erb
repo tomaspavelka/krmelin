@@ -1,0 +1,18 @@
+Aktuality Krmelín
+=================
+
+Na základě registrace vaší e-mailové adresy vám posíláme nejnovější aktuality ze stránek obce Krmelín.
+   
+
+<% @news_items.each do |news_item| %>
+  ------------------------------------------
+  
+    <%= news_item.imported_title %>
+    <%= news_item.imported_date %>
+    <%= "http://www.krmelin.cz/#{news_item.imported_link}" %>
+
+<% end %>
+
+===================================================
+Nejedná se o oficiální službu obce Krmelín.
+V případě problémů kontaktujte info@tomaspavelka.cz
