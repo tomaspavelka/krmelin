@@ -1,0 +1,43 @@
+%h1
+  Aktuality Krmelín
+  %span.text-muted (#{@news_items.size})
+
+.well
+  .row
+    .col-xs-6
+      = link_to "Registrovat e-mail", new_user_path, class: "btn btn-block btn-success"
+    .col-xs-6
+      = link_to "Jak to funguje?", "#", class: "btn btn-block btn-primary", data: { toggle: "modal", target: "#info-modal" }
+
+      #info-modal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+        .modal-dialog{:role => "document"}
+          .modal-content
+            .modal-header
+              %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                %span{"aria-hidden" => "true"} ×
+              %h4#myModalLabel.modal-title Jak to funguje?
+            .modal-body
+              %p
+                Každou hodinu jsou kontrolovány stránky http://www.krmelin.cz a stahovány
+                informace ze sekce Aktuality na úvodní stránce. Tyto jsou ukládány do lokální
+                databáze.
+              %p
+                Na registrované e-maily chodí informace o nových aktualitách. O každé novince
+                jste tak informováni maximálně hodinu poté co se objeví na oficiálních stránkách
+                obce.
+            .modal-footer
+              %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} OK
+
+- @news_items.each do |news_item|
+  .panel.panel-default
+    .panel-body
+      %p.pull-right.m-l-1
+        %small= news_item.imported_date
+      %h2.panel-title= news_item.imported_title
+      %p.m-t
+        = link_to "http://www.krmelin.cz/#{news_item.imported_link}", "http://www.krmelin.cz/#{news_item.imported_link}"
+
+%p.text-center.m-t-3
+  %em
+    Poslední aktualizace
+    = l(@activity.created_at, format: :long)

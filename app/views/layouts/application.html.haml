@@ -1,0 +1,42 @@
+!!!
+%html{lang: "cs"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+
+    %title Krmelín
+
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+
+    / HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    / WARNING: Respond.js doesn"t work if you view the page via file://
+    /[if lt IE 9]
+      = javascript_include_tag "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"
+      = javascript_include_tag "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"
+
+  %body
+    %nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        %p
+          Testovací provoz. Dotazy a přípomínky posílejte na #{mail_to "info@tomaspavelka.cz", "info@tomaspavelka.cz"}.
+
+
+    .page-container
+      .container-fluid
+        - if flash[:alert]
+          .alert.alert-danger{ role: "alert" }
+            = flash[:alert].gsub("\n", "<br />")
+
+        - if flash[:notice]
+          .alert.alert-success{ role: "alert" }
+            = flash[:notice].gsub("\n", "<br />")
+
+        = yield
+
+      %hr
+      .container-fluid.text-center.text-muted.small
+        &copy; 2016
+        = link_to "Tomáš Pavelka", "http://www.tomaspavelka.cz/", class: "text-muted"
