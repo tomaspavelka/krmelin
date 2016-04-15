@@ -73,6 +73,7 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.1)
     debug_inspector (0.0.2)
+    envyable (1.0.0)
     erubis (2.7.0)
     exception_notification (4.1.4)
       actionmailer (~> 4.0)
@@ -187,6 +188,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.1.1)
   capistrano-rvm!
   coffee-rails (~> 4.1.0)
+  envyable
   exception_notification
   haml
   jquery-rails

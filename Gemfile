@@ -33,6 +33,7 @@ gem 'turbolinks'
 # gem 'capistrano-rails', group: :development
 
 gem "bootstrap-sass"
+gem "envyable"
 gem "exception_notification"
 gem "haml"
 gem "pg"
