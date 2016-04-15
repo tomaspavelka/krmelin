@@ -7,11 +7,13 @@ class NewsItemsController < ApplicationController
   def import
     NewsItem.import
 
-    news_items_for_notification = NewsItem.where(notified: false)
-    User.all.each do |user|
-      NewsItemMailer.notify(news_items_for_notification, user).deliver_now
+    news_items_for_notification = NewsItem.where(notified: false).ordered
+    if news_items_for_notification.any?
+      User.all.each do |user|
+        NewsItemMailer.notify(news_items_for_notification, user).deliver_now
+      end
+      news_items_for_notification.update_all(notified: true)
     end
-    news_items_for_notification.update_all(notified: true)
 
     activity = Activity.new
     activity.news_items_check = true
