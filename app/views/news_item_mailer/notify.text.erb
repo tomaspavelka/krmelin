@@ -6,9 +6,9 @@ Na základě registrace vaší e-mailové adresy vám posíláme nejnovější a
 
 <% @news_items.each do |news_item| %>
   ------------------------------------------
-  
-    <%= news_item.imported_title %>
-    <%= news_item.imported_date %>
+
+    <%= news_item.imported_title.strip %>
+    <%= news_item.imported_date.strip %>
     <%= "http://www.krmelin.cz/#{news_item.imported_link}" %>
 
 <% end %>
