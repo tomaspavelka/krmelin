@@ -5,7 +5,7 @@ class NewsItemsController < ApplicationController
   end
 
   def import
-    NewsItem.import
+    import_result = NewsItem.import
 
     news_items_for_notification = NewsItem.where(notified: false).ordered
     if news_items_for_notification.any?
@@ -19,6 +19,6 @@ class NewsItemsController < ApplicationController
     activity.news_items_check = true
     activity.save
 
-    render text: "Import Finished"
+    render text: import_result
   end
 end

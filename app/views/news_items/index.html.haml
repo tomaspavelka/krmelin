@@ -33,12 +33,8 @@
 - @news_items.each do |news_item|
   .panel.panel-default
     .panel-body
-      .row
-        .col-md-9
-          %h2.panel-title= news_item.imported_title
-        .col-md-3
-          %small= news_item.imported_date
-
+      %h2.panel-title= news_item.imported_title
+      %small= news_item.imported_date
       %p.m-t
         = link_to "http://www.krmelin.cz/#{news_item.imported_link}", "http://www.krmelin.cz/#{news_item.imported_link}"
 
