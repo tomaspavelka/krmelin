@@ -7,7 +7,7 @@ body {
       color: #fff;
       font-style: italic;
       margin: 0;
-      padding-top: 15px;
+      padding: 15px;
       text-align: center;
     }
   }
@@ -23,11 +23,28 @@ h1 {
   text-align: center;
 }
 
+.news-items-header {
+  h3 {
+    margin: 0;
+  }
+  em {
+    display: block;
+    margin-top: 5px;
+  }
+}
+
 $spacer-x: 20px;
 $spacer-y: 20px;
 
 .m-b-1 {
   margin-bottom: $spacer-y !important;
+}
+.m-b-2 {
+  margin-bottom: ($spacer-y * 1.5) !important;
+}
+
+.m-b-3 {
+  margin-bottom: ($spacer-y * 2) !important;
 }
 
 .m-l-1 {

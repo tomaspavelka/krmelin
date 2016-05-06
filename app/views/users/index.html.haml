@@ -1,0 +1,10 @@
+%h1
+  Registrované emaily
+
+- @users.each do |user|
+  .well
+    %span.glyphicon.glyphicon-user{ aria: { hidden: true }}
+    = mail_to user.email, user.email
+    - if user.enable_testing_emails?
+      .pull-right.m-l-1
+        = link_to "Testovací e-mail", send_test_email_user_path(user), class: "btn btn-xs btn-primary"

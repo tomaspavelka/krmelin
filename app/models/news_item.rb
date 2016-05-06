@@ -3,6 +3,7 @@ class NewsItem < ActiveRecord::Base
   require "open-uri"
 
   scope :ordered, -> { order("id DESC") }
+  scope :recent, lambda { |limit_value| limit(limit_value) }
 
   def self.import
     doc = Nokogiri::HTML(open('http://www.krmelin.cz/'))

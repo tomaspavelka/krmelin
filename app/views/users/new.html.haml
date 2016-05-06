@@ -3,5 +3,5 @@
 
 .well
   = simple_form_for @user do |f|
-    = f.input :email, label: "Váš e-mail", hint: "Zadejte váš e-mail pokud chcete být informováni o novinkách přidaných po vaší registraci. E-mailová adresa nebude použita k jinému účelu."
+    = f.input :email, input_html: { autofocus: true }, label: "Váš e-mail", hint: "Zadejte váš e-mail pokud chcete být informováni o novinkách přidaných po vaší registraci. E-mailová adresa nebude použita k jinému účelu."
     = f.button :submit, "Přidat e-mail", data: { disable_with: "Odesílá se…" }

@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+  before_action :authenticate, only: [:index, :send_test_email]
+
+  def index
+    @users = User.all.order(:email)
+  end
+
   def new
     @user = User.new
   end
@@ -10,6 +16,15 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def send_test_email
+    @user = User.enabled_testing_emails.find(params[:id])
+    if @user
+      NewsItemMailer.notify(NewsItem.ordered.recent(5), @user).deliver_now
+      flash[:notice] = "Testovací e-mail odeslán."
+    end
+    redirect_to :users
   end
 
   private

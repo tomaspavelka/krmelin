@@ -27,11 +27,11 @@
     .page-container
       .container-fluid
         - if flash[:alert]
-          .alert.alert-danger{ role: "alert" }
+          .alert.alert-danger.text-center{ role: "alert" }
             = flash[:alert].gsub("\n", "<br />")
 
         - if flash[:notice]
-          .alert.alert-success{ role: "alert" }
+          .alert.alert-success.text-center{ role: "alert" }
             = flash[:notice].gsub("\n", "<br />")
 
         = yield

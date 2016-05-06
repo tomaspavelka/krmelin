@@ -1,44 +1,45 @@
 %h1
   Aktuality Krmelín
-  %span.text-muted (#{@news_items.size})
 
-.well
-  .row
-    .col-xs-6
-      = link_to "Registrovat e-mail", new_user_path, class: "btn btn-block btn-success"
-    .col-xs-6
-      = link_to "Jak to funguje?", "#", class: "btn btn-block btn-primary", data: { toggle: "modal", target: "#info-modal" }
+.well.m-b-3
+  %p
+    Každou hodinu jsou kontrolovány stránky
+    = link_to "http://www.krmelin.cz", "http://www.krmelin.cz"
+    a stahovány informace ze sekce Aktuality na úvodní stránce. Tyto jsou ukládány do lokální
+    databáze.
+  %p
+    Na registrované e-maily chodí informace o nových aktualitách. O každé novince,
+    která se objeví po vaší registraci na oficiálních stránkách obce, jste tak
+    informováni maximálně hodinu poté (tzn. kontrola obecních stránek probíhá každou hodinu).
 
-      #info-modal.modal.fade{ aria: { labelledby: "myModalLabel" }, role: "dialog", tabindex: "-1" }
-        .modal-dialog{ role: "document" }
-          .modal-content
-            .modal-header
-              %button.close{ aria: { label: "Close" }, data: { dismiss: "modal" }, type: "button" }
-                %span{ aria: { hidden: "true" }} ×
-              %h4#myModalLabel.modal-title Jak to funguje?
-            .modal-body
-              %p
-                Každou hodinu jsou kontrolovány stránky http://www.krmelin.cz a stahovány
-                informace ze sekce Aktuality na úvodní stránce. Tyto jsou ukládány do lokální
-                databáze.
-              %p
-                Na registrované e-maily chodí informace o nových aktualitách. O každé novince,
-                která se objeví po vaší registraci na oficiálních stránkách obce, jste tak
-                informováni maximálně hodinu poté (tzn. kontrola obecních stránek probíhá každou hodinu).
-            .modal-footer
-              %button.btn.btn-primary{ data: { dismiss: "modal" }, type: "button" } OK
+  .text-center
+    = link_to new_user_path, class: "btn btn-lg btn-success" do
+      %span.glyphicon.glyphicon-envelope{ aria: { hidden: "true" }}
+      Registrovat e-mail
+
+.news-items-header.row.m-b-1
+  .col-sm-7
+    %h3
+      Archiv aktualit
+      %span.text-muted (#{@news_items.size})
+
+  - if @activity
+    .col-sm-5.text-right
+      %em
+        Poslední aktualizace
+        = l(@activity.created_at, format: :long)
+
 
 - @news_items.each do |news_item|
   .panel.panel-default
     .panel-body
-      %p.pull-right.m-l-1
-        %small= news_item.imported_date
-      %h2.panel-title= news_item.imported_title
+      .row
+        .col-md-9
+          %h2.panel-title= news_item.imported_title
+        .col-md-3
+          %small= news_item.imported_date
+
       %p.m-t
         = link_to "http://www.krmelin.cz/#{news_item.imported_link}", "http://www.krmelin.cz/#{news_item.imported_link}"
 
-- if @activity
-  %p.text-center.m-t-3
-    %em
-      Poslední aktualizace
-      = l(@activity.created_at, format: :long)
+= paginate @news_items

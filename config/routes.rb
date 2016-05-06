@@ -5,13 +5,21 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root "news_items#index"
 
-  resources :news_items, path: "aktuality", only: [:index] do
+  concern :paginatable do
+    get "(strana/:page)", action: :index, on: :collection, as: ""
+  end
+
+  resources :news_items, concerns: :paginatable, path: "aktuality", only: [:index] do
     collection do
       get :import
     end
   end
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:index, :new, :create] do
+    member do
+      get :send_test_email
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

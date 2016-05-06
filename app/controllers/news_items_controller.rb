@@ -1,6 +1,6 @@
 class NewsItemsController < ApplicationController
   def index
-    @news_items = NewsItem.ordered
+    @news_items = NewsItem.ordered.page(params[:page])
     @activity = Activity.recent.first
   end
 
