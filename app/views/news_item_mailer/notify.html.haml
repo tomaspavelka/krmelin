@@ -1,7 +1,7 @@
 %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :height => "100%", :style => "border-collapse:collapse;height:100%;margin:0;padding:0;width:100%;background-color:#eee", :width => "100%"}
   %tbody
     %tr
-      %td{:align => "center", :style => "height:100%;margin:0;padding:30px 10px 10px;width:100%;border-top:0", :valign => "top"}
+      %td{:align => "center", :style => "height:100%;margin:0;padding:10px;width:100%;border-top:0", :valign => "top"}
         %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-collapse:collapse;border:0;max-width:600px!important", :width => "100%"}
           %tbody
             %tr
@@ -14,7 +14,7 @@
                           %tbody
                             - @news_items.each do |news_item|
                               %tr
-                                %td{:style => "border-bottom: 10px solid #eee; padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;word-break:break-word;color:#202020;font-family:Helvetica;font-size:16px;line-height:150%;text-align:left", :valign => "top"}
+                                %td{:style => "border-bottom: 10px solid #eee;padding-top:9px;padding-right:18px;padding-bottom:9px;padding-left:18px;word-break:break-word;color:#202020;font-family:Helvetica;font-size:16px;line-height:150%;text-align:left", :valign => "top"}
                                   %strong= news_item.imported_title
                                   %br
                                   = news_item.imported_date
