@@ -1,3 +1,9 @@
 == Krmelin News Items
 
 WebApp pulling info from www.krmelin.cz and sending notification emails.
+
+
+Development
+-----------
+
+http://localhost:3000/rails/mailers/news_item_mailer/notify
