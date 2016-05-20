@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate, only: [:index, :send_test_email]
 
   def index
-    @users = User.all.order(:email)
+    @users = User.all.order(:created_at)
   end
 
   def new
