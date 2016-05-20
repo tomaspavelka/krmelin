@@ -5,7 +5,7 @@
     %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
 
-    %title Krmelín
+    %title Aktuality Krmelín
 
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
@@ -23,7 +23,6 @@
         %p
           Testovací provoz. Dotazy a přípomínky posílejte na #{mail_to "info@tomaspavelka.cz", "info@tomaspavelka.cz"}.
 
-
     .page-container
       .container-fluid
         - if flash[:alert]
@@ -36,7 +35,6 @@
 
         = yield
 
-      %hr
-      .container-fluid.text-center.text-muted.small
+      .container-fluid.text-center.text-muted.small.m-t-3
         &copy; 2016
         = link_to "Tomáš Pavelka", "http://www.tomaspavelka.cz/", class: "text-muted"
