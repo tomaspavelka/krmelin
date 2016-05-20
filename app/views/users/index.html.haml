@@ -1,10 +1,15 @@
 %h1
   Registrované emaily
+  %span.text-muted (#{User.count})
 
 - @users.each do |user|
-  .well
+  .well.well-sm
     %span.glyphicon.glyphicon-user{ aria: { hidden: true }}
     = mail_to user.email, user.email
+
+    &bull;
+    = l(user.created_at, format: :long)
+
     - if user.enable_testing_emails?
       .pull-right.m-l-1
         = link_to "Testovací e-mail", send_test_email_user_path(user), class: "btn btn-xs btn-primary"
