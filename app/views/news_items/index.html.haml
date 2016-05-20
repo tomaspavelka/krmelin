@@ -21,7 +21,7 @@
   .col-sm-7
     %h3
       Archiv aktualit
-      %span.text-muted (#{@news_items.size})
+      %span.text-muted (#{NewsItem.count})
 
   - if @activity
     .col-sm-5.text-right
