@@ -1,5 +1,5 @@
 body {
-  background: #f9f9f9 image-url("layout/body-background.png");
+  background: #f9f9f9;
   padding: 0 0 50px;
 
   .navbar-static-top {
@@ -24,6 +24,7 @@ body {
   .page-container {
     margin: auto;
     max-width: 800px;
+    padding-top: 50px;
   }
 }
 
